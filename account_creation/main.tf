@@ -11,4 +11,10 @@ resource "google_project_iam_member" "allow_sa_impersonation_tokens" {
   project  = var.gcp_project_id
   role     = "roles/iam.serviceAccountTokenCreator"
   member   = "user:${each.value}"
+
+  condition {
+    title      = "my_service_account_a_container_admin"
+    expression = "request.time < timestamp(\"2024-12-31T00:00:00Z\")"
+  }
+
 }
