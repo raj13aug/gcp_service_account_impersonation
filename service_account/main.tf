@@ -17,6 +17,6 @@ resource "google_service_account_iam_binding" "impersonate_sa" {
   role               = "roles/iam.serviceAccountTokenCreator"
 
   members = [
-    "user:${google_service_account.iam_sa.email}"
+    "user:raj13aug@gmail.com"
   ]
 }
